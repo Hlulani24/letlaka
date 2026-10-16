@@ -10,6 +10,7 @@ const LINKS = [
   ["custom", "Custom Orders"],
   ["about", "About"],
   ["contact", "Contact"],
+  ["admin", "Staff Login"],
 ];
 
 export default function NavBar({ path }) {

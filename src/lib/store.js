@@ -9,7 +9,8 @@ import { SEED_PRODUCTS } from "../data/products.js";
  *    so the admin panel can be tried out end to end with zero setup.
  */
 
-const LS_PRODUCTS = "letlaka.demo.products.v1";
+// Bump this number whenever the starter catalogue changes, so demo browsers pick up the new products.
+const LS_PRODUCTS = "letlaka.demo.products.v2";
 const LS_LEADS = "letlaka.demo.leads.v1";
 const EVT = "letlaka-store-change";
 
@@ -52,19 +53,21 @@ const fromRow = (r) => ({
   sort: r.sort ?? 0,
 });
 
+// Every column gets a real value: a bulk insert sends missing fields as null,
+// which would break the not-null columns instead of using their defaults.
 const toRow = (p) => ({
   id: p.id,
   name: p.name,
   category: p.cat,
-  blurb: p.blurb,
-  status: p.status,
-  featured: p.featured,
-  visible: p.visible,
-  price: p.price,
-  sale_price: p.salePrice,
-  images: p.images,
-  sizes: p.sizes || [],
-  sort: p.sort,
+  blurb: p.blurb ?? "",
+  status: p.status === "concept" ? "concept" : "core",
+  featured: Boolean(p.featured),
+  visible: p.visible !== false,
+  price: p.price ?? null,
+  sale_price: p.salePrice ?? null,
+  images: p.images ?? [],
+  sizes: p.sizes ?? [],
+  sort: Number.isFinite(p.sort) ? p.sort : 0,
 });
 
 const bySort = (a, b) => (a.sort ?? 0) - (b.sort ?? 0);

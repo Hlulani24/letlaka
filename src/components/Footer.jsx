@@ -101,7 +101,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-bone/40 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} {BRAND.name}. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} {BRAND.name}. All rights reserved || By MalulekeHlulani.</p>
           <p className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <span>Enquiries & custom orders only — no online payments.</span>
             <a href={href("admin")} className="font-semibold text-bone/50 transition hover:text-sun">

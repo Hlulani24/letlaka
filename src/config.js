@@ -9,12 +9,12 @@ export const BRAND = {
 
 // From the contact card the client supplied.
 export const PHONES = [
-  { display: "+27 67 774 5340", tel: "+27677745340" },
-  { display: "+27 78 727 1731", tel: "+27787271731" },
+  { display: "+27 84 012 6930", tel: "+27840126930" },
+  // { display: "+27 78 727 1731", tel: "+27787271731" },
 ];
 
 // WhatsApp uses the first number. Change if the other one is the WhatsApp line.
-export const WHATSAPP_NUMBER = "27677745340";
+export const WHATSAPP_NUMBER = "27840126930";
 
 export const SOCIALS = {
   facebook: { label: "Letlaka Clothing", url: "https://www.facebook.com/search/top?q=Letlaka%20Clothing" },
