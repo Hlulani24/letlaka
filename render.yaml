@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: letlaka-clothing
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    headers:
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: VITE_SUPABASE_URL
+        sync: false
+      - key: VITE_SUPABASE_ANON_KEY
+        sync: false
+      - key: VITE_EMAILJS_SERVICE_ID
+        sync: false
+      - key: VITE_EMAILJS_PUBLIC_KEY
+        sync: false
+      - key: VITE_EMAILJS_ORDER_TEMPLATE_ID
+        sync: false
+      - key: VITE_EMAILJS_CONTACT_TEMPLATE_ID
+        sync: false
+      - key: VITE_EMAILJS_BASKET_TEMPLATE_ID
+        sync: false
+      - key: VITE_CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: VITE_CLOUDINARY_UPLOAD_PRESET
+        sync: false
