@@ -80,8 +80,11 @@ img {
   width: max-content;
   animation: marquee 38s linear infinite;
 }
-.marquee:hover .marquee-track {
-  animation-play-state: paused;
+/* Pause on hover only for real mouse pointers (touch "hover" sticks after a tap). */
+@media (hover: hover) and (pointer: fine) {
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
 }
 
 /* Hero float */
@@ -125,5 +128,7 @@ img {
   .page-in, .fade-scale { animation: none; }
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .marquee-track, .floaty { animation: none; }
+  .floaty { animation: none; }
+  /* Keep the strip gliding, just much slower, so phones with "reduce motion" still see it move. */
+  .marquee-track { animation-duration: 120s !important; }
 }
